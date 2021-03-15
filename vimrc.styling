@@ -9,8 +9,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 set termguicolors
 set bg=dark
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
+colorscheme jellybeans
+"let g:airline_theme='onehalfdark'
 
 set cursorline
 

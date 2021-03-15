@@ -28,13 +28,20 @@ set laststatus=2          " always show the status line
 set listchars=tab:▷⋅,trail:·
 set list
 
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
 " highlight spell errors
 hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
 
 " behavior
 " ignore these files when completing names and in
 " explorer
-set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.pdf,*.jpg,*.png,*.xpm,*.gif,*.aux,*.fdb_latexmk,*.fls,*.out,*.syntex.gz
+set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.pdf,*.dvi,*.jpg,*.png,*.xpm,*.gif,*.aux,*.fdb_latexmk,*.fls,*.out,*.synctex.gz
 set autowriteall        " Automatically save before commands like :next and :make
 set hidden              " enable multiple modified buffers
 set history=10000

@@ -1,1 +1,1 @@
-GuiFont Hack:h10
+GuiFont Hack:h9

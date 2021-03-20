@@ -8,9 +8,10 @@ let g:enable_bold_font = 1
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 set termguicolors
-set bg=dark
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
+set bg=light
+colorscheme PaperColor
+let g:airline_theme='papercolor'
+let g:one_allow_italics = 1
 
 set cursorline
 

@@ -5,13 +5,13 @@ let g:plug_timeout=300
 call plug#begin('~/.config/nvim/plugged')
 
 " Plugins: Proc.vim shell scripting  and file stuff --------------------------
-Plug 'Shougo/vimproc.vim', {'do': 'make'}
+Plug 'Shougo/vimproc.vim'
 
 " Plugins: Vim Repeat on steroids
 Plug 'tpope/vim-repeat'
 
 " Plugins: Airline -----------------------------------------------------------
-Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline', {'tag': 'v0.11'}
 Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts=0
@@ -26,11 +26,11 @@ let g:airline#extensions#tabline#show_close_button = 0
 set noshowmode
 
 " Plugins: Install a bunch of color schemes
-Plug 'rakr/vim-one'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'rakr/vim-one'
 
 " Plugins: Indent guides -----------------------------------------------------
-Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine', {'tag': 'v2.0'}
 
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['┆', '┊']
@@ -44,7 +44,7 @@ let g:indentLine_char_list = ['┆', '┊']
 " let g:indent_guides_color_change_percent = 5
 
 " Plugins: NerdTree base -----------------------------------------------------
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree', {'tag': '6.10.9'}
 
 " Plugins: NerdTree-git ------------------------------------------------------
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -60,11 +60,15 @@ nmap <leader>p :NERDTreeFind<CR>
 
 " Plugins: Nerdcommenter -----------------------------------------------------
 
-Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdcommenter', {'tag': '2.5.2'}
 
 let g:NERDSpaceDelims=1
 let g:NERDDefaultAlign = 'left'
-let g:NERDCustomDelimiters = { 'clojure': {'left': ';;', 'leftAlt': ';'}}
+let g:NERDCustomDelimiters = {
+      \ 'lisp': {'left': ';;', 'leftAlt': ';'},
+      \ 'scheme': {'left': ';;', 'leftAlt': ';'},
+      \ 'clojure': {'left': ';;', 'leftAlt': ';'},
+      \ 'racket': {'left': ';;', 'leftAlt': ';'}}
 
 " ,/ to invert comment on the current line/selection
 nmap <leader>/ :call NERDComment(0, "invert")<cr>
@@ -102,7 +106,7 @@ nmap <localleader>t :BTags<cr>
 nmap <leader>b :Buffers<cr>
 
 " Plugins: CtrlP (on L) ------------------------------------------------------
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim', {'tag': '1.81'}
 Plug 'd11wtq/ctrlp_bdelete.vim'
 
 let g:ctrlp_clear_cache_on_exit = 1
@@ -124,7 +128,7 @@ let g:ctrlp_cmd = 'CtrlP'
 map <c-l> :CtrlP <CR>
 
 " Plugins: Greplace files ----------------------------------------------------
-Plug 'vim-scripts/greplace.vim'
+Plug 'vim-scripts/greplace.vim', {'tag': '1.0b1'}
 nmap <leader>Gs :Gsearch<cr>
 nmap <leader>GS :Gbuffersearch<cr>
 nmap <leader>Gr :Greplace<cr>
@@ -138,7 +142,7 @@ if executable("ag")
 endif
 
 " Plugins: Gundo -------------------------------------------------------------
-Plug 'sjl/gundo.vim'
+Plug 'sjl/gundo.vim', {'tag': 'v2.6.2'}
 
 let g:gundo_close_on_revert = 1
 
@@ -164,11 +168,6 @@ Plug 'AndrewRadev/switch.vim'
 
 " Plugins: Urls to links -----------------------------------------------------
 Plug 'vim-scripts/utl.vim'
-
-" config help: <url:~/.config/nvim/plugged/utl_rc.vim#r=utl_cfg_hdl_scm_http>
-if has("mac")
-  let g:utl_cfg_hdl_scm_http_system = "!open '%u'"
-end
 
 nmap <leader>o :Utl <space>
 
@@ -196,11 +195,8 @@ let g:delimitMate_expand_space = 1
 " Turns on/off the expansion of <CR>
 let g:delimitMate_expand_cr = 1
 
-" Plugins: Editorconfig for those .editorconfig files ------------------------
-Plug 'editorconfig/editorconfig-vim'
-
 " Plugins: Git things done ---------------------------------------------------
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive', {'tag': 'v3.2'}
 Plug 'vim-scripts/Merginal'
 
 " ,g for Ggrep
@@ -219,7 +215,7 @@ Plug 'vitaly/vim-gitignore'
 Plug 'tpope/vim-surround'
 
 " Plugins: Tmux navigator ----------------------------------------------------
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator', {'tag': 'v1.0'}
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <c-w>j :TmuxNavigateDown<cr>
 nnoremap <silent> <c-w>k :TmuxNavigateUp<cr>
@@ -231,20 +227,17 @@ nnoremap <silent> <c-w>h :TmuxNavigateLeft<cr>
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
-Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown', {'tag': 'vim8.2'}
 Plug 'leafgarland/typescript-vim'
-" Javascript
+" JavaScript
 Plug 'pangloss/vim-javascript'
-Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'MaxMEllon/vim-jsx-pretty', {'tag': 'v3.0.0'}
 Plug 'moll/vim-node'
-" Clojure
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-salve'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
+" Scheme
+Plug 'Olical/conjure', {'tag': 'v4.16.0'}
 " LaTeX
-Plug 'lervag/vimtex'
-"let g:Tex_ShowErrorContext = 0
+Plug 'lervag/vimtex', {'tag': 'v2.4'}
+let g:vimtex_quickfix_enabled = 0
 
 " Plugins: Emmet -------------------------------------------------------------
 Plug 'mattn/emmet-vim'
@@ -257,13 +250,14 @@ nmap <leader>t :TestNearest --format documentation<cr>
 nmap <leader>T :TestFile --format documentation<cr>
 
 " Plugins: Code Completion and lint help -------------------------------------
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'tag': 'v0.0.80', 'do': { -> coc#util#install()}}
 
+let g:coc_disable_startup_warning = 1
 let g:coc_global_extensions = [
   \ 'coc-snippets', 'coc-pairs', 'coc-lists', 'coc-marketplace', 'coc-vimlsp',
   \ 'coc-git', 'coc-docker', 'coc-webpack', 'coc-html', 'coc-css', 'coc-yaml',
-  \ 'coc-emmet', 'coc-tslint', 'coc-tsserver', 'coc-clangd', 'coc-java',
-  \ 'coc-python', 'coc-conjure', 'coc-vimtex'
+  \ 'coc-emmet', 'coc-tslint', 'coc-tsserver', 'coc-sql', 'coc-clangd',
+  \ 'coc-java', 'coc-python', 'coc-conjure', 'coc-vimtex'
   \]
 
 let g:coc_user_config = {
@@ -340,7 +334,7 @@ nmap <silent><leader>m  <Plug>(coc-diagnostic-next)
 nmap <silent><leader>M  <Plug>(coc-diagnostic-prev)
 
 " Plugins: Ale linter --------------------------------------------------------
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale', {'tag': 'v3.1.0'}
 
 " Remaps
 nmap <silent> <C-K> <Plug>(ale_previous_wrap)

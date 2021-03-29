@@ -11,7 +11,6 @@ set termguicolors
 set bg=light
 colorscheme PaperColor
 let g:airline_theme='papercolor'
-let g:one_allow_italics = 1
 
 set cursorline
 

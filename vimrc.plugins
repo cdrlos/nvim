@@ -11,11 +11,11 @@ Plug 'Shougo/vimproc.vim'
 Plug 'tpope/vim-repeat'
 
 " Plugins: Airline -----------------------------------------------------------
-Plug 'vim-airline/vim-airline', {'tag': 'v0.11'}
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts=0
-let g:airline_theme='base16'
+" let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tabs_label = 'NeoVim'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -26,11 +26,10 @@ let g:airline#extensions#tabline#show_close_button = 0
 set noshowmode
 
 " Plugins: Install a bunch of color schemes
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'rakr/vim-one'
 
 " Plugins: Indent guides -----------------------------------------------------
-Plug 'Yggdroot/indentLine', {'tag': 'v2.0'}
+Plug 'Yggdroot/indentLine'
 
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['┆', '┊']
@@ -44,7 +43,7 @@ let g:indentLine_char_list = ['┆', '┊']
 " let g:indent_guides_color_change_percent = 5
 
 " Plugins: NerdTree base -----------------------------------------------------
-Plug 'preservim/nerdtree', {'tag': '6.10.9'}
+Plug 'preservim/nerdtree'
 
 " Plugins: NerdTree-git ------------------------------------------------------
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -60,7 +59,7 @@ nmap <leader>p :NERDTreeFind<CR>
 
 " Plugins: Nerdcommenter -----------------------------------------------------
 
-Plug 'preservim/nerdcommenter', {'tag': '2.5.2'}
+Plug 'preservim/nerdcommenter'
 
 let g:NERDSpaceDelims=1
 let g:NERDDefaultAlign = 'left'
@@ -106,7 +105,7 @@ nmap <localleader>t :BTags<cr>
 nmap <leader>b :Buffers<cr>
 
 " Plugins: CtrlP (on L) ------------------------------------------------------
-Plug 'ctrlpvim/ctrlp.vim', {'tag': '1.81'}
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'd11wtq/ctrlp_bdelete.vim'
 
 let g:ctrlp_clear_cache_on_exit = 1
@@ -128,7 +127,7 @@ let g:ctrlp_cmd = 'CtrlP'
 map <c-l> :CtrlP <CR>
 
 " Plugins: Greplace files ----------------------------------------------------
-Plug 'vim-scripts/greplace.vim', {'tag': '1.0b1'}
+Plug 'vim-scripts/greplace.vim'
 nmap <leader>Gs :Gsearch<cr>
 nmap <leader>GS :Gbuffersearch<cr>
 nmap <leader>Gr :Greplace<cr>
@@ -142,7 +141,7 @@ if executable("ag")
 endif
 
 " Plugins: Gundo -------------------------------------------------------------
-Plug 'sjl/gundo.vim', {'tag': 'v2.6.2'}
+Plug 'sjl/gundo.vim'
 
 let g:gundo_close_on_revert = 1
 
@@ -196,7 +195,7 @@ let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_cr = 1
 
 " Plugins: Git things done ---------------------------------------------------
-Plug 'tpope/vim-fugitive', {'tag': 'v3.2'}
+Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/Merginal'
 
 " ,g for Ggrep
@@ -215,7 +214,7 @@ Plug 'vitaly/vim-gitignore'
 Plug 'tpope/vim-surround'
 
 " Plugins: Tmux navigator ----------------------------------------------------
-Plug 'christoomey/vim-tmux-navigator', {'tag': 'v1.0'}
+Plug 'christoomey/vim-tmux-navigator'
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <c-w>j :TmuxNavigateDown<cr>
 nnoremap <silent> <c-w>k :TmuxNavigateUp<cr>
@@ -227,16 +226,18 @@ nnoremap <silent> <c-w>h :TmuxNavigateLeft<cr>
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
-Plug 'tpope/vim-markdown', {'tag': 'vim8.2'}
+Plug 'tpope/vim-markdown'
 Plug 'leafgarland/typescript-vim'
 " JavaScript
 Plug 'pangloss/vim-javascript'
-Plug 'MaxMEllon/vim-jsx-pretty', {'tag': 'v3.0.0'}
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'moll/vim-node'
-" Scheme
-Plug 'Olical/conjure', {'tag': 'v4.16.0'}
+" R
+Plug 'jalvesaq/Nvim-R'
+" Julia
+Plug 'JuliaEditorSupport/julia-vim'
 " LaTeX
-Plug 'lervag/vimtex', {'tag': 'v2.4'}
+Plug 'lervag/vimtex'
 let g:vimtex_quickfix_enabled = 0
 
 " Plugins: Emmet -------------------------------------------------------------
@@ -250,24 +251,25 @@ nmap <leader>t :TestNearest --format documentation<cr>
 nmap <leader>T :TestFile --format documentation<cr>
 
 " Plugins: Code Completion and lint help -------------------------------------
-Plug 'neoclide/coc.nvim', {'tag': 'v0.0.80', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 let g:coc_disable_startup_warning = 1
 let g:coc_global_extensions = [
-  \ 'coc-snippets', 'coc-pairs', 'coc-lists', 'coc-marketplace', 'coc-vimlsp',
-  \ 'coc-git', 'coc-docker', 'coc-webpack', 'coc-html', 'coc-css', 'coc-yaml',
-  \ 'coc-emmet', 'coc-tslint', 'coc-tsserver', 'coc-sql', 'coc-clangd',
-  \ 'coc-java', 'coc-python', 'coc-conjure', 'coc-vimtex'
-  \]
+      \ 'coc-snippets', 'coc-pairs', 'coc-lists', 'coc-marketplace',
+      \ 'coc-vimlsp', 'coc-git', 'coc-docker', 'coc-webpack', 'coc-html',
+      \ 'coc-css', 'coc-yaml', 'coc-emmet', 'coc-tslint', 'coc-tsserver',
+      \ 'coc-sql', 'coc-clangd', 'coc-java', 'coc-python', 'coc-vimtex',
+      \ 'coc-r-lsp', 'coc-julia'
+      \]
 
 let g:coc_user_config = {
-  \ "diagnostic.errorSign": '⚠',
-  \ "diagnostic.warningSign": '⚐',
-  \ "diagnostic.infoSign": '⚐',
-  \ "diagnostic.hintSign": '⚐',
-  \ "diagnostic.signOffset": 100,
-  \ "coc.preferences.enableFloatHighlight": v:false,
-  \ }
+      \ "diagnostic.errorSign": '⚠',
+      \ "diagnostic.warningSign": '⚐',
+      \ "diagnostic.infoSign": '⚐',
+      \ "diagnostic.hintSign": '⚐',
+      \ "diagnostic.signOffset": 100,
+      \ "coc.preferences.enableFloatHighlight": v:false,
+      \ }
 
 let g:airline#extensions#coc#enabled = 1
 let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)] }'
@@ -334,7 +336,7 @@ nmap <silent><leader>m  <Plug>(coc-diagnostic-next)
 nmap <silent><leader>M  <Plug>(coc-diagnostic-prev)
 
 " Plugins: Ale linter --------------------------------------------------------
-Plug 'dense-analysis/ale', {'tag': 'v3.1.0'}
+Plug 'dense-analysis/ale'
 
 " Remaps
 nmap <silent> <C-K> <Plug>(ale_previous_wrap)
@@ -349,29 +351,32 @@ hi link ALEWarningSign  Todo
 
 " Dissabled linters (since COC takes care of these)
 let g:ale_linters = {
-  \  'css':        [],
-  \  'javascript': [],
-  \  'typescript': [],
-  \  'json':       [],
-  \  'scss':       [],
-  \  'yaml':       [],
-  \  'c':          [],
-  \  'cpp':        [],
-  \  'python':     [],
-  \  'clojure':    [],
-  \  'tex':        []
-  \ }
+      \  'css':        [],
+      \  'javascript': [],
+      \  'typescript': [],
+      \  'json':       [],
+      \  'scss':       [],
+      \  'yaml':       [],
+      \  'c':          [],
+      \  'cpp':        [],
+      \  'python':     [],
+      \  'clojure':    [],
+      \  'tex':        []
+      \ }
 
 " Autofixing
 let g:ale_fixers = {
-  \ '*': ['trim_whitespace', 'remove_trailing_lines'],
-  \ 'javascript': ['eslint'],
-  \ 'typescript': ['eslint', 'tslint'],
-  \ 'ruby': ['rubocop'],
-  \ 'markdown': ['prettier'],
-  \ 'scss': ['stylelint'],
-  \ 'elixir': ['mix_format']
-  \ }
+      \ '*': ['trim_whitespace', 'remove_trailing_lines'],
+      \ 'javascript': ['eslint'],
+      \ 'typescript': ['eslint', 'tslint'],
+      \ 'ruby': ['rubocop'],
+      \ 'markdown': ['prettier'],
+      \ 'scss': ['stylelint'],
+      \ 'elixir': ['mix_format'],
+      \ 'c': ['clangtidy'],
+      \ 'cpp': ['clangtidy'],
+      \ 'python': ['pylint'],
+      \ }
 
 let g:ale_fix_on_save = 1
 

@@ -3,7 +3,7 @@ syntax on
 
 " standard: training wheels for new vim users. Use the system clipboard on all
 " registers. Take these wheels off when you get more confident in Vim.
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 " utf-8/unicode support
 " requires Vim to be compiled with Multibyte support, you can check that by

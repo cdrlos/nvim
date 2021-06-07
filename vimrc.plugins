@@ -29,18 +29,14 @@ set noshowmode
 Plug 'rakr/vim-one'
 
 " Plugins: Indent guides -----------------------------------------------------
-Plug 'Yggdroot/indentLine'
+Plug 'vim-scripts/Indent-Guides'
+colorscheme default
 
-let g:indentLine_setColors = 0
-let g:indentLine_char_list = ['┆', '┊']
-" Plug 'vim-scripts/Indent-Guides'
-" colorscheme default
-
-" " indent-guides settings
-" let g:indent_guides_start_level = 2
-" let g:indent_guides_enable_on_vim_startup = 1
-" let g:indent_guides_guide_size = 1
-" let g:indent_guides_color_change_percent = 5
+" indent-guides settings
+let g:indent_guides_start_level = 2
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_color_change_percent = 5
 
 " Plugins: NerdTree base -----------------------------------------------------
 Plug 'preservim/nerdtree'
@@ -224,6 +220,7 @@ nnoremap <silent> <c-w>h :TmuxNavigateLeft<cr>
 " Plugins: languages and syntax ----------------------------------------------
 " General languages
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'cespare/vim-toml'
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 Plug 'tpope/vim-markdown'
@@ -232,8 +229,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'moll/vim-node'
-" R
-Plug 'jalvesaq/Nvim-R'
+" Racket
+Plug 'wlangstroth/vim-racket'
 " Julia
 Plug 'JuliaEditorSupport/julia-vim'
 " LaTeX
@@ -255,11 +252,10 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 let g:coc_disable_startup_warning = 1
 let g:coc_global_extensions = [
-      \ 'coc-snippets', 'coc-pairs', 'coc-lists', 'coc-marketplace',
-      \ 'coc-vimlsp', 'coc-git', 'coc-docker', 'coc-webpack', 'coc-html',
-      \ 'coc-css', 'coc-yaml', 'coc-emmet', 'coc-tslint', 'coc-tsserver',
-      \ 'coc-sql', 'coc-clangd', 'coc-java', 'coc-python', 'coc-vimtex',
-      \ 'coc-r-lsp', 'coc-julia'
+      \ 'coc-snippets', 'coc-pairs', 'coc-lists', 'coc-marketplace', 
+      \ 'coc-vimlsp', 'coc-git', 'coc-docker', 'coc-webpack', 'coc-html', 
+      \ 'coc-json', 'coc-css', 'coc-yaml', 'coc-emmet', 'coc-tslint', 
+      \ 'coc-tsserver'
       \]
 
 let g:coc_user_config = {
@@ -360,23 +356,19 @@ let g:ale_linters = {
       \  'c':          [],
       \  'cpp':        [],
       \  'python':     [],
-      \  'clojure':    [],
       \  'tex':        []
       \ }
 
 " Autofixing
-let g:ale_fixers = {
-      \ '*': ['trim_whitespace', 'remove_trailing_lines'],
-      \ 'javascript': ['eslint'],
-      \ 'typescript': ['eslint', 'tslint'],
-      \ 'ruby': ['rubocop'],
-      \ 'markdown': ['prettier'],
-      \ 'scss': ['stylelint'],
-      \ 'elixir': ['mix_format'],
-      \ 'c': ['clangtidy'],
-      \ 'cpp': ['clangtidy'],
-      \ 'python': ['pylint'],
-      \ }
+" let g:ale_fixers = {
+"       \ '*': ['trim_whitespace', 'remove_trailing_lines'],
+"       \ 'javascript': ['eslint'],
+"       \ 'typescript': ['eslint', 'tslint'],
+"       \ 'html': ['tidy'],
+"       \ 'markdown': ['prettier'],
+"       \ 'scss': ['stylelint'],
+"       \ 'python': ['pylint']
+"       \ }
 
 let g:ale_fix_on_save = 1
 
@@ -388,4 +380,3 @@ let g:ale_echo_msg_warning_str = '⚐'
 
 " End Plug
 call plug#end()
-" Automatically executes 'filetype plugin indent on' and 'syntax enable'

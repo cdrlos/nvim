@@ -1,0 +1,44 @@
+{
+  "languageserver": {
+    "cpp": {
+      "command": "clangd",
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+    },
+    "python": {
+      "command": "python3",
+      "args": ["-mpyls", "-vv", "--log-file", "/tmp/lsp_python.log"],
+      "filetypes": ["python"],
+      "settings": {}
+    },
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    },
+    "racket": {
+      "command": "racket",
+      "args": [ "--lib", "racket-langserver" ],
+      "filetypes": ["racket", "scheme" ]
+    },
+    "r": {
+      "command": "R",
+      "args": [ "--slave", "-e", "languageserver::run()" ],
+      "filetypes": [ "r" ]
+    },
+    "julia": {
+      "command": "julia",
+      "args" : ["--startup-file=no", "--history-file=no", "-e", "using LanguageServer; using Pkg; import StaticLint; import SymbolServer; env_path = dirname(Pkg.Types.Context().env.project_file); server = LanguageServer.LanguageServerInstance(stdin, stdout, env_path, \"\"); server.runlinter = true; run(server);" ],
+      "filetypes": [ "julia" ]
+    },
+    "sql": {
+      "command": "sql-language-server",
+      "args" : ["up", "--method", "stdio"],
+      "filetypes": ["sql", "mysql"]
+    },
+    "tex": {
+      "command": "digestif",
+      "filetypes": ["tex", "plaintex", "context"]
+    }
+  }
+}

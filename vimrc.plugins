@@ -26,7 +26,7 @@ let g:airline#extensions#tabline#show_close_button = 0
 set noshowmode
 
 " Plugins: Install a bunch of color schemes
-Plug 'rakr/vim-one'
+Plug 'kaicataldo/material.vim'
 
 " Plugins: Indent guides -----------------------------------------------------
 Plug 'vim-scripts/Indent-Guides'
@@ -255,7 +255,7 @@ let g:coc_global_extensions = [
       \ 'coc-snippets', 'coc-pairs', 'coc-lists', 'coc-marketplace', 
       \ 'coc-vimlsp', 'coc-git', 'coc-docker', 'coc-webpack', 'coc-html', 
       \ 'coc-json', 'coc-css', 'coc-yaml', 'coc-emmet', 'coc-tslint', 
-      \ 'coc-tsserver'
+      \ 'coc-tsserver', 'coc-java', 'coc-solargraph'
       \]
 
 let g:coc_user_config = {
@@ -276,8 +276,7 @@ let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]} '
 " hi link CocWarningSign  WarningMsg
 
 " if hidden is not set, TextEdit might fail.
-" set hidden
-
+set hidden
 " Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup

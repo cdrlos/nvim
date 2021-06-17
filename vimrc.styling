@@ -9,8 +9,10 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 set termguicolors
 set bg=dark
-colorscheme one
-let g:airline_theme='one'
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'darker'
+colorscheme material
+let g:airline_theme='material'
 
 set cursorline
 

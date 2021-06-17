@@ -232,7 +232,7 @@ Plug 'moll/vim-node'
 " Racket
 Plug 'wlangstroth/vim-racket'
 " Julia
-Plug 'JuliaEditorSupport/julia-vim'
+" Plug 'JuliaEditorSupport/julia-vim'
 " LaTeX
 Plug 'lervag/vimtex'
 let g:vimtex_quickfix_enabled = 0

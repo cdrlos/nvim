@@ -15,7 +15,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts=0
-" let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tabs_label = 'NeoVim'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -26,11 +25,10 @@ let g:airline#extensions#tabline#show_close_button = 0
 set noshowmode
 
 " Plugins: Install a bunch of color schemes
-Plug 'kaicataldo/material.vim'
+Plug 'joshdick/onedark.vim'
 
 " Plugins: Indent guides -----------------------------------------------------
-Plug 'vim-scripts/Indent-Guides'
-colorscheme default
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " indent-guides settings
 let g:indent_guides_start_level = 2
@@ -180,6 +178,8 @@ let g:yankring_max_history = 1000
 " ,y to show the yankring
 nmap <leader>y :YRShow<cr>
 let g:yankring_window_height = 20
+" fix yankring on neovim
+let g:yankring_clipboard_monitor=0
 
 " Plugins: Delimate & Endwise closing things automatically -------------------
 Plug 'Raimondi/delimitMate'
@@ -229,10 +229,12 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'moll/vim-node'
+" Rails
+Plug 'tpope/vim-rails'
 " Racket
 Plug 'wlangstroth/vim-racket'
 " Julia
-" Plug 'JuliaEditorSupport/julia-vim'
+Plug 'JuliaEditorSupport/julia-vim'
 " LaTeX
 Plug 'lervag/vimtex'
 let g:vimtex_quickfix_enabled = 0
@@ -248,14 +250,14 @@ nmap <leader>t :TestNearest --format documentation<cr>
 nmap <leader>T :TestFile --format documentation<cr>
 
 " Plugins: Code Completion and lint help -------------------------------------
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install()}}
 
 let g:coc_disable_startup_warning = 1
 let g:coc_global_extensions = [
-      \ 'coc-snippets', 'coc-pairs', 'coc-lists', 'coc-marketplace', 
-      \ 'coc-vimlsp', 'coc-git', 'coc-docker', 'coc-webpack', 'coc-html', 
-      \ 'coc-json', 'coc-css', 'coc-yaml', 'coc-emmet', 'coc-tslint', 
-      \ 'coc-tsserver', 'coc-java', 'coc-solargraph'
+      \ 'coc-snippets', 'coc-pairs', 'coc-lists', 'coc-marketplace',
+      \ 'coc-vimlsp', 'coc-git', 'coc-docker', 'coc-webpack', 'coc-html',
+      \ 'coc-json', 'coc-css', 'coc-yaml', 'coc-emmet', 'coc-tslint',
+      \ 'coc-tsserver', 'coc-solargraph', 'coc-java', 'coc-omnisharp'
       \]
 
 let g:coc_user_config = {
@@ -329,53 +331,6 @@ nmap <silent> gr <Plug>(coc-references)
 " Next and previous navigation
 nmap <silent><leader>m  <Plug>(coc-diagnostic-next)
 nmap <silent><leader>M  <Plug>(coc-diagnostic-prev)
-
-" Plugins: Ale linter --------------------------------------------------------
-Plug 'dense-analysis/ale'
-
-" Remaps
-nmap <silent> <C-K> <Plug>(ale_previous_wrap)
-nmap <silent> <C-J> <Plug>(ale_next_wrap)
-" Icons
-let g:ale_sign_error = '⚠'
-let g:ale_sign_warning = '⚐'
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-hi link ALEErrorSign    GitGutterDelete
-hi link ALEWarningSign  Todo
-
-" Dissabled linters (since COC takes care of these)
-let g:ale_linters = {
-      \  'css':        [],
-      \  'javascript': [],
-      \  'typescript': [],
-      \  'json':       [],
-      \  'scss':       [],
-      \  'yaml':       [],
-      \  'c':          [],
-      \  'cpp':        [],
-      \  'python':     [],
-      \  'tex':        []
-      \ }
-
-" Autofixing
-" let g:ale_fixers = {
-"       \ '*': ['trim_whitespace', 'remove_trailing_lines'],
-"       \ 'javascript': ['eslint'],
-"       \ 'typescript': ['eslint', 'tslint'],
-"       \ 'html': ['tidy'],
-"       \ 'markdown': ['prettier'],
-"       \ 'scss': ['stylelint'],
-"       \ 'python': ['pylint']
-"       \ }
-
-let g:ale_fix_on_save = 1
-
-" Airline integration
-let g:airline#extensions#ale#enabled = 1
-let g:ale_statusline_format = ['⚠ %d', '⚠ %d', '']
-let g:ale_echo_msg_error_str = '⚠'
-let g:ale_echo_msg_warning_str = '⚐'
 
 " End Plug
 call plug#end()

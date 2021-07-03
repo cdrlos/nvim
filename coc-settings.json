@@ -1,10 +1,9 @@
 {
   "languageserver": {
-    // general
     "c": {
       "command": "clangd",
       "rootPatterns": ["CMakeLists.txt", "compile_flags.txt", "compile_commands.json"],
-      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]      
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
     },
     "python": {
       "command": "python3",
@@ -13,36 +12,32 @@
       "filetypes": ["python"],
       "settings": {}
     },
-    "racket": {
-      "command": "racket",
-      "args": ["--lib", "racket-langserver"],
-      "rootPatterns": [".travis.yml", "info.rkt"],
-      "filetypes": ["racket"]
-    },
-    "rust": {
-      "command": "rust-analyzer",
-      "filetypes": ["rust"],
-      "rootPatterns": ["Cargo.toml"]
-    },
-    // numerical 
     "r": {
       "command": "R",
       "args": ["--slave", "-e", "languageserver::run()"],
       "rootPatterns": [".Rproj"],
       "filetypes": ["r"]
     },
-    // database
+    "racket": {
+      "command": "racket",
+      "args": ["--lib", "racket-langserver"],
+      "rootPatterns": [".travis.yml", "info.rkt"],
+      "filetypes": ["racket"]
+    },
+    "julia": {
+      "command":"/usr/bin/julia",
+      "args":["--startup-file=no", "--history-file=no", "-e", "using LanguageServer, Pkg, Sockets, SymbolServer; env_path = dirname(Pkg.Types.Context().env.project_file); server = LanguageServer.LanguageServerInstance(stdin, stdout, true, env_path, \"\"); server.runlinter = true; run(server);"],
+      "filetypes":["julia"] 
+    },
     "sql": {
       "command": "sql-language-server",
       "args" : ["up", "--method", "stdio"],
       "filetypes": ["sql", "mysql"]
     },
-    // text processing
     "tex": {
       "command": "digestif",
       "filetypes": ["tex", "plaintex", "context"]
     },
-    // scripting
     "bash": {
       "command": "bash-language-server",
       "args": ["start"],

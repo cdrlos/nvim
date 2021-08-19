@@ -25,7 +25,7 @@ let g:airline#extensions#tabline#show_close_button = 0
 set noshowmode
 
 " Plugins: Install a bunch of color schemes
-Plug 'joshdick/onedark.vim'
+Plug 'chriskempson/base16-vim'
 
 " Plugins: Indent guides -----------------------------------------------------
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -60,7 +60,6 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDCustomDelimiters = {
       \ 'lisp': {'left': ';;', 'leftAlt': ';'},
       \ 'scheme': {'left': ';;', 'leftAlt': ';'},
-      \ 'clojure': {'left': ';;', 'leftAlt': ';'},
       \ 'racket': {'left': ';;', 'leftAlt': ';'}}
 
 " ,/ to invert comment on the current line/selection
@@ -231,8 +230,11 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'moll/vim-node'
 " Rails
 Plug 'tpope/vim-rails'
+" Perl
+Plug 'vim-perl/vim-perl'
 " Racket
 Plug 'wlangstroth/vim-racket'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 " Julia
 Plug 'JuliaEditorSupport/julia-vim'
 " LaTeX

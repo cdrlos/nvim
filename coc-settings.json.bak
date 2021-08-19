@@ -1,6 +1,5 @@
 {
   "languageserver": {
-    // general
     "c": {
       "command": "clangd",
       "rootPatterns": ["CMakeLists.txt", "compile_flags.txt", "compile_commands.json"],
@@ -24,7 +23,6 @@
       "filetypes": ["rust"],
       "rootPatterns": ["Cargo.toml"]
     },
-    // numerical 
     "r": {
       "command": "R",
       "args": ["--slave", "-e", "languageserver::run()"],
@@ -37,18 +35,15 @@
       "rootPatterns": ["Project.toml"],
       "filetypes": ["julia"]
     },
-    // database
     "sql": {
       "command": "sql-language-server",
       "args" : ["up", "--method", "stdio"],
       "filetypes": ["sql", "mysql"]
     },
-    // text processing
     "tex": {
       "command": "digestif",
       "filetypes": ["tex", "plaintex", "context"]
     },
-    // scripting
     "bash": {
       "command": "bash-language-server",
       "args": ["start"],

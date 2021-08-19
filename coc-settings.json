@@ -3,7 +3,7 @@
     "c": {
       "command": "clangd",
       "rootPatterns": ["CMakeLists.txt", "compile_flags.txt", "compile_commands.json"],
-      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]      
     },
     "python": {
       "command": "python3",
@@ -12,11 +12,10 @@
       "filetypes": ["python"],
       "settings": {}
     },
-    "r": {
-      "command": "R",
-      "args": ["--slave", "-e", "languageserver::run()"],
-      "rootPatterns": [".Rproj"],
-      "filetypes": ["r"]
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
     },
     "racket": {
       "command": "racket",
@@ -24,10 +23,22 @@
       "rootPatterns": [".travis.yml", "info.rkt"],
       "filetypes": ["racket"]
     },
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    },
+    "r": {
+      "command": "R",
+      "args": ["--slave", "-e", "languageserver::run()"],
+      "rootPatterns": [".Rproj"],
+      "filetypes": ["r"]
+    },
     "julia": {
-      "command":"/usr/bin/julia",
-      "args":["--startup-file=no", "--history-file=no", "-e", "using LanguageServer, Pkg, Sockets, SymbolServer; env_path = dirname(Pkg.Types.Context().env.project_file); server = LanguageServer.LanguageServerInstance(stdin, stdout, true, env_path, \"\"); server.runlinter = true; run(server);"],
-      "filetypes":["julia"] 
+      "command": "julia",
+      "args" : ["--startup-file=no", "--history-file=no", "-e", "using LanguageServer; using Pkg; import StaticLint; import SymbolServer; env_path = dirname(Pkg.Types.Context().env.project_file); server = LanguageServer.LanguageServerInstance(stdin, stdout, env_path, \"\"); server.runlinter = true; run(server);" ],
+      "rootPatterns": ["Project.toml"],
+      "filetypes": ["julia"]
     },
     "sql": {
       "command": "sql-language-server",
